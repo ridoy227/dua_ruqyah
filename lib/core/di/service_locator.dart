@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:get_it/get_it.dart';
+import 'package:stacked_themes/stacked_themes.dart';
 
 
 // Implementation Note:
@@ -66,6 +67,7 @@ class ServiceLocator {
   }
 
   Future<void> _setUpServices() async {
+    await ThemeManager.initialise();
     // _serviceLocator
     //   ..registerLazySingleton(HadithDatabase.new)
     //   ..registerLazySingleton(BookmarkDatabaseService.new)
