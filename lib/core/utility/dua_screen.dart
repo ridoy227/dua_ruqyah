@@ -71,4 +71,151 @@ class DuaScreen {
       _height = null;
     }
   }
+
+
 }
+
+double? _fourPx;
+double get fourPx {
+  _fourPx ??= 4.px;
+  return _fourPx!;
+}
+
+double? _sixPx;
+double get sixPx {
+  _sixPx ??= 6.px;
+  return _sixPx!;
+}
+
+double? _tenPx;
+double get tenPx {
+  _tenPx ??= 10.px;
+  return _tenPx!;
+}
+
+double? _twelvePx;
+double get twelvePx {
+  _twelvePx ??= 12.px;
+  return _twelvePx!;
+}
+
+double? _fourteenPx;
+double get fourteenPx {
+  _fourteenPx ??= 14.px;
+  return _fourteenPx!;
+}
+
+double? _sixteenPx;
+double get sixteenPx {
+  _sixteenPx ??= 16.px;
+  return _sixteenPx!;
+}
+
+double? _eighteenPx;
+double get eighteenPx {
+  _eighteenPx ??= 18.px;
+  return _eighteenPx!;
+}
+
+double? _twentyPx;
+double get twentyPx {
+  _twentyPx ??= 20.px;
+  return _twentyPx!;
+}
+
+double? _twentyFourPx;
+double get twentyFourPx {
+  _twentyFourPx ??= 24.px;
+  return _twentyFourPx!;
+}
+
+double? _twentyEightPx;
+double get twentyEightPx {
+  _twentyEightPx ??= 28.px;
+  return _twentyEightPx!;
+}
+
+double? _thirtyPx;
+double get thirtyPx {
+  _thirtyPx ??= 30.px;
+  return _thirtyPx!;
+}
+
+double? _thirtyTwoPx;
+double get thirtyTwoPx {
+  _thirtyTwoPx ??= 32.px;
+  return _thirtyTwoPx!;
+}
+
+double? _thirtyFourPx;
+double get thirtyFourPx {
+  _thirtyFourPx ??= 34.px;
+  return _thirtyFourPx!;
+}
+
+double? _fortyPx;
+double get fortyPx {
+  _fortyPx ??= 40.px;
+  return _fortyPx!;
+}
+
+double? _fortyEightPx;
+double get fortyEightPx {
+  _fortyEightPx ??= 48.px;
+  return _fortyEightPx!;
+}
+
+double? _sixtyFourPx;
+double get sixtyFourPx {
+  _sixtyFourPx ??= 64.px;
+  return _sixtyFourPx!;
+}
+
+double? _hundredPx;
+double get hundredPx {
+  _hundredPx ??= 100.px;
+  return _hundredPx!;
+}
+
+
+
+
+
+
+double? _heightPercent;
+double? _widthPercent;
+double? _DuaScreenWidthQuarterPercentage;
+
+
+extension DeviceExtention on num{
+
+
+   double get px {
+    _DuaScreenWidthQuarterPercentage ??= _calculateDuaScreenWidthQuarterPercentage();
+    return this * (_DuaScreenWidthQuarterPercentage ?? 0);
+  }
+
+
+
+   double get percentHeight {
+    _heightPercent ??= DuaScreen.height / 100;
+    return this * (_heightPercent ?? 0);
+  }
+
+
+   double get percentWidth {
+    _widthPercent ??= DuaScreen.width / 100;
+    return this * (_widthPercent ?? 0);
+  }
+
+
+  
+
+
+
+}
+
+double _calculateDuaScreenWidthQuarterPercentage() {
+  return (DuaScreen.width / 3.9) / 100;
+}
+

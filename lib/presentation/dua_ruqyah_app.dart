@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dua_ruqyah/core/static/constants.dart';
 import 'package:dua_ruqyah/core/utility/logger_utility.dart';
-import 'package:dua_ruqyah/home.dart';
+import 'package:dua_ruqyah/presentation/home/ui/home.dart';
 import 'package:dua_ruqyah/presentation/config/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -45,7 +45,7 @@ class _DuaRuqyahAppState extends State<DuaRuqyahApp> {
               child: child ?? const SizedBox.shrink()
               );
           },
-          home: const HomeScreen(),
+          home:  HomeScreen(),
         );
 
       },
