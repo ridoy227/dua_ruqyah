@@ -4,7 +4,9 @@ import 'package:dua_ruqyah/core/static/font_family.dart';
 import 'package:flutter/material.dart';
 
 final ThemeData duaLightTheme = ThemeData(
-  textTheme: _textTheme()
+  textTheme: _textTheme(),
+  scaffoldBackgroundColor: Color.fromARGB(255, 231, 226, 226),
+  cardColor: Colors.white
 
 );
 

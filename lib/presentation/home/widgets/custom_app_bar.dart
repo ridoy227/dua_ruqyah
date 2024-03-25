@@ -12,13 +12,12 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 10.percentHeight, // Adjust the height as needed
+      height: 10.percentHeight, 
       child: Row(
         children: [
           IconButton(
             icon: const Icon(Icons.menu),
             onPressed: () {
-              // Handle drawer functionality
             },
           ),
            Expanded(
@@ -29,18 +28,12 @@ class CustomAppBar extends StatelessWidget {
                   fontSize: eighteenPx,
                   fontWeight: FontWeight.w500,
                 )
-                
-                //  TextStyle(
-                //   fontSize: fourteenPx,
-                //   fontWeight: FontWeight.bold,
-                // ),
               ),
             ),
           ),
           IconButton(
             icon: const Icon(Icons.search,),
             onPressed: () {
-              // Handle search functionality
             },
           ),
         ],
