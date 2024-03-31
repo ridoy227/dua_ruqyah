@@ -1,14 +1,14 @@
+import 'package:dua_ruqyah/core/di/service_locator.dart';
 import 'package:dua_ruqyah/core/utility/dua_screen.dart';
+import 'package:dua_ruqyah/data/services/dua_database/dua_database_service.dart';
 import 'package:dua_ruqyah/presentation/home/widgets/custom_app_bar.dart';
 import 'package:dua_ruqyah/presentation/home/widgets/daily_dua_carousol_widget.dart';
 import 'package:dua_ruqyah/presentation/home/widgets/dashboard_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
-
-  List<String> dashboardList = [
+  HomeScreen({super.key});
+  final List<String> dashboardList = [
     'Last Read',
     'Memorize',
     'Ruqyah',
@@ -16,8 +16,14 @@ class HomeScreen extends StatelessWidget {
     'Books',
     'Support'
   ];
+
+  void getData() async{
+    var a = await locate<DuaDatabase>().duaTables;
+  }
+
   @override
   Widget build(BuildContext context) {
+    getData();
     ThemeData theme = Theme.of(context);
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
@@ -48,31 +54,26 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                Icon(Icons.alarm),
+                const Icon(Icons.alarm),
                 SizedBox(width: tenPx,),
-                Expanded(
+                const Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Dua's Importance"),
                       Text("Subcategory : 7"),
-                  
-                  
                     ],
                   ),
                 ),
-                 Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                 const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("21"),
                     Text("Duas"),
-
-
                   ],
                 ),
-
-              ],),
+                 ],),
             )
             ),
             SizedBox(height: twentyEightPx,)

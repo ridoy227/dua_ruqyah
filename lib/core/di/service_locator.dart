@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:dua_ruqyah/data/services/dua_database/dua_database_service.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stacked_themes/stacked_themes.dart';
 
@@ -68,8 +69,9 @@ class ServiceLocator {
 
   Future<void> _setUpServices() async {
     await ThemeManager.initialise();
-    // _serviceLocator
-    //   ..registerLazySingleton(HadithDatabase.new)
+    _serviceLocator
+      ..registerLazySingleton(DuaDatabase.new);
+
     //   ..registerLazySingleton(BookmarkDatabaseService.new)
     //   ..registerLazySingleton<ErrorMessageHandler>(ErrorMessageHandlerImpl.new)
     //   ..registerLazySingleton(LocalCacheService.new)
