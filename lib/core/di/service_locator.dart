@@ -1,6 +1,14 @@
 import 'dart:async';
 
+import 'package:dua_ruqyah/core/base/base_presenter.dart';
+import 'package:dua_ruqyah/data/data_sources/dua_local_data_source.dart';
+import 'package:dua_ruqyah/data/repositories/category_repository_impl.dart';
 import 'package:dua_ruqyah/data/services/dua_database/dua_database_service.dart';
+import 'package:dua_ruqyah/data/services/error_message_handler_impl.dart';
+import 'package:dua_ruqyah/domain/repositories/category_repository.dart';
+import 'package:dua_ruqyah/domain/services/error_message_handler.dart';
+import 'package:dua_ruqyah/domain/use_case/get_category_use_case.dart';
+import 'package:dua_ruqyah/presentation/home/presenter/home_presenter.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stacked_themes/stacked_themes.dart';
 
@@ -70,10 +78,8 @@ class ServiceLocator {
   Future<void> _setUpServices() async {
     await ThemeManager.initialise();
     _serviceLocator
-      ..registerLazySingleton(DuaDatabase.new);
-
-    //   ..registerLazySingleton(BookmarkDatabaseService.new)
-    //   ..registerLazySingleton<ErrorMessageHandler>(ErrorMessageHandlerImpl.new)
+      ..registerLazySingleton(DuaDatabase.new)
+      ..registerLazySingleton<ErrorMessageHandler>(ErrorMessageHandlerImpl.new);
     //   ..registerLazySingleton(LocalCacheService.new)
     //   ..registerSingleton<AwesomeNotifications>(AwesomeNotifications())
     //   ..registerFactory(ArticleApiService.new)
@@ -118,9 +124,9 @@ class ServiceLocator {
   }
 
   Future<void> _setUpDataSources() async {
-    // _serviceLocator
-    //   ..registerLazySingleton(
-    //     () => HadithLocalDataSource(locate(), locate()),
+    _serviceLocator
+      ..registerLazySingleton(
+        () => DuaLocalDataSource(locate()));
     //   )
     //   ..registerFactory(() => SearchLocalDataSource(locate()))
     //   ..registerFactory(() => InfoLocalDataSource(locate(), locate()))
@@ -131,10 +137,8 @@ class ServiceLocator {
   }
 
   Future<void> _setUpRepositories() async {
-    // _serviceLocator
-    //   ..registerLazySingleton<BookRepository>(
-    //     () => HadithBookRepositoryImpl(locate()),
-    //   )
+    _serviceLocator
+      ..registerLazySingleton<CategoryRepository>( () => CategoryRepositoryImpl(locate()));
     //   ..registerLazySingleton<NotificationRepository>(
     //     () => NotificationRepositoryImpl(
     //       locate(),
@@ -156,26 +160,15 @@ class ServiceLocator {
   }
 
   Future<void> _setUpPresenters() async {
-    // _serviceLocator
-    //   ..registerFactory(
-    //     () => loadPresenter(
-    //       HomePresenter(
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //         locate(),
-    //       ),
-    //     ),
-    //   );
+    _serviceLocator
+      ..registerFactory(
+        () => loadPresenter(
+          HomePresenter(
+            locate(),
+         
+          ),
+        ),
+      );
   }
 
   Future<void> _setUpOthers() async {
@@ -185,8 +178,8 @@ class ServiceLocator {
   }
 
   Future<void> _setUpUseCase() async {
-    // _serviceLocator
-    //   ..registerFactory(() => GetAllBooksUseCase(locate(), locate()));
+    _serviceLocator
+      ..registerFactory(() => GetCategoryUseCase(locate(), locate()));
      
   
   }

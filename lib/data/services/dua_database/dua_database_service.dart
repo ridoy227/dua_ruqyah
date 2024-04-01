@@ -1,5 +1,6 @@
 import 'package:drift/drift.dart';
 import 'package:dua_ruqyah/data/services/dua_database/database_loader.dart';
+import 'package:dua_ruqyah/data/services/dua_database/table/category_table.dart';
 import 'package:dua_ruqyah/data/services/dua_database/table/dua_table.dart';
 
 
@@ -8,6 +9,7 @@ part 'dua_database_service.g.dart';
 @DriftDatabase(
   tables: [
     Dua,
+    Category,
   ],
 )
 class DuaDatabase extends _$DuaDatabase {
@@ -31,5 +33,8 @@ class DuaDatabase extends _$DuaDatabase {
       );
 
   Future<List<DuaDto>> get duaTables => select(dua).get();
+
+
+  Future<List<CategoryDto>> get categoryList => select(category).get();
 
 }
