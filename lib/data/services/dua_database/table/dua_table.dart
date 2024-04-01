@@ -1,39 +1,39 @@
 import 'package:drift/drift.dart';
 
-@DataClassName("DuaTableDto")
-class DuaTable extends Table {
+@DataClassName("DuaDto")
+class Dua extends Table {
   IntColumn get id => integer().autoIncrement()();
 
-  IntColumn get catId => integer()();
+  IntColumn get catId => integer().nullable()();
 
-  IntColumn get subcatId => integer()();
+  IntColumn get subcatId => integer().nullable()();
 
-  IntColumn get duaId => integer()();
+  IntColumn get duaId => integer().nullable()();
 
-  TextColumn get duaNameBn => text()();
-  TextColumn get duaNameEn => text()();
+  TextColumn get duaNameBn => text().nullable()();
+  TextColumn get duaNameEn => text().nullable()();
 
-  TextColumn get topBn => text()();
-  TextColumn get topEn => text()();
+  TextColumn get topBn => text().nullable()();
+  TextColumn get topEn => text().nullable()();
 
-  TextColumn get duaArabic => text()();
-  TextColumn get duaIndopak => text()();
+  TextColumn get duaArabic => text().nullable()();
+  TextColumn get duaIndopak => text().nullable()();
 
   
-  TextColumn get cleanArabic => text()();
+  TextColumn get cleanArabic => text().nullable()();
 
 
-  TextColumn get transliterationBn => text()();
-  TextColumn get transliterationEn => text()();
+  TextColumn get transliterationBn => text().nullable()();
+  TextColumn get transliterationEn => text().nullable()();
 
-  TextColumn get translationBn => text()();
-  TextColumn get translationEn => text()();
+  TextColumn get translationBn => text().nullable()();
+  TextColumn get translationEn => text().nullable()();
 
-  TextColumn get bottomEn => text()();
-  TextColumn get bottomBn => text()();
+  TextColumn get bottomEn => text().nullable()();
+  TextColumn get bottomBn => text().nullable()();
 
-  TextColumn get refferenceBn => text()();
-  TextColumn get refferenceEn => text()();
+  TextColumn get refferenceBn => text().nullable()();
+  TextColumn get refferenceEn => text().nullable()();
 
-  TextColumn get audio => text()();
+  TextColumn get audio => text().nullable()();
 }

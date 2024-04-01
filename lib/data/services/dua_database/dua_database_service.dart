@@ -7,7 +7,7 @@ part 'dua_database_service.g.dart';
 
 @DriftDatabase(
   tables: [
-    DuaTable,
+    Dua,
   ],
 )
 class DuaDatabase extends _$DuaDatabase {
@@ -23,12 +23,13 @@ class DuaDatabase extends _$DuaDatabase {
   int get schemaVersion => 1;
 
   @override
+  
   MigrationStrategy get migration => MigrationStrategy(
         onCreate: (Migrator migrator) async {
           // await migrator.createTable(bookmarks);
         },
       );
 
-  Future<List<DuaTableDto>> get duaTables => select(duaTable).get();
+  Future<List<DuaDto>> get duaTables => select(dua).get();
 
 }

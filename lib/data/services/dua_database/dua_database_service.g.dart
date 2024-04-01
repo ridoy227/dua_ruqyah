@@ -3,12 +3,11 @@
 part of 'dua_database_service.dart';
 
 // ignore_for_file: type=lint
-class $DuaTableTable extends DuaTable
-    with TableInfo<$DuaTableTable, DuaTableDto> {
+class $DuaTable extends Dua with TableInfo<$DuaTable, DuaDto> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
-  $DuaTableTable(this.attachedDatabase, [this._alias]);
+  $DuaTable(this.attachedDatabase, [this._alias]);
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
@@ -21,112 +20,112 @@ class $DuaTableTable extends DuaTable
   static const VerificationMeta _catIdMeta = const VerificationMeta('catId');
   @override
   late final GeneratedColumn<int> catId = GeneratedColumn<int>(
-      'cat_id', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+      'cat_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _subcatIdMeta =
       const VerificationMeta('subcatId');
   @override
   late final GeneratedColumn<int> subcatId = GeneratedColumn<int>(
-      'subcat_id', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+      'subcat_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _duaIdMeta = const VerificationMeta('duaId');
   @override
   late final GeneratedColumn<int> duaId = GeneratedColumn<int>(
-      'dua_id', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
+      'dua_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _duaNameBnMeta =
       const VerificationMeta('duaNameBn');
   @override
   late final GeneratedColumn<String> duaNameBn = GeneratedColumn<String>(
-      'dua_name_bn', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'dua_name_bn', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _duaNameEnMeta =
       const VerificationMeta('duaNameEn');
   @override
   late final GeneratedColumn<String> duaNameEn = GeneratedColumn<String>(
-      'dua_name_en', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'dua_name_en', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _topBnMeta = const VerificationMeta('topBn');
   @override
   late final GeneratedColumn<String> topBn = GeneratedColumn<String>(
-      'top_bn', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'top_bn', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _topEnMeta = const VerificationMeta('topEn');
   @override
   late final GeneratedColumn<String> topEn = GeneratedColumn<String>(
-      'top_en', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'top_en', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _duaArabicMeta =
       const VerificationMeta('duaArabic');
   @override
   late final GeneratedColumn<String> duaArabic = GeneratedColumn<String>(
-      'dua_arabic', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'dua_arabic', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _duaIndopakMeta =
       const VerificationMeta('duaIndopak');
   @override
   late final GeneratedColumn<String> duaIndopak = GeneratedColumn<String>(
-      'dua_indopak', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'dua_indopak', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _cleanArabicMeta =
       const VerificationMeta('cleanArabic');
   @override
   late final GeneratedColumn<String> cleanArabic = GeneratedColumn<String>(
-      'clean_arabic', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'clean_arabic', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _transliterationBnMeta =
       const VerificationMeta('transliterationBn');
   @override
   late final GeneratedColumn<String> transliterationBn =
-      GeneratedColumn<String>('transliteration_bn', aliasedName, false,
-          type: DriftSqlType.string, requiredDuringInsert: true);
+      GeneratedColumn<String>('transliteration_bn', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _transliterationEnMeta =
       const VerificationMeta('transliterationEn');
   @override
   late final GeneratedColumn<String> transliterationEn =
-      GeneratedColumn<String>('transliteration_en', aliasedName, false,
-          type: DriftSqlType.string, requiredDuringInsert: true);
+      GeneratedColumn<String>('transliteration_en', aliasedName, true,
+          type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _translationBnMeta =
       const VerificationMeta('translationBn');
   @override
   late final GeneratedColumn<String> translationBn = GeneratedColumn<String>(
-      'translation_bn', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'translation_bn', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _translationEnMeta =
       const VerificationMeta('translationEn');
   @override
   late final GeneratedColumn<String> translationEn = GeneratedColumn<String>(
-      'translation_en', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'translation_en', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _bottomEnMeta =
       const VerificationMeta('bottomEn');
   @override
   late final GeneratedColumn<String> bottomEn = GeneratedColumn<String>(
-      'bottom_en', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'bottom_en', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _bottomBnMeta =
       const VerificationMeta('bottomBn');
   @override
   late final GeneratedColumn<String> bottomBn = GeneratedColumn<String>(
-      'bottom_bn', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'bottom_bn', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _refferenceBnMeta =
       const VerificationMeta('refferenceBn');
   @override
   late final GeneratedColumn<String> refferenceBn = GeneratedColumn<String>(
-      'refference_bn', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'refference_bn', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _refferenceEnMeta =
       const VerificationMeta('refferenceEn');
   @override
   late final GeneratedColumn<String> refferenceEn = GeneratedColumn<String>(
-      'refference_en', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'refference_en', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   static const VerificationMeta _audioMeta = const VerificationMeta('audio');
   @override
   late final GeneratedColumn<String> audio = GeneratedColumn<String>(
-      'audio', aliasedName, false,
-      type: DriftSqlType.string, requiredDuringInsert: true);
+      'audio', aliasedName, true,
+      type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns => [
         id,
@@ -154,9 +153,9 @@ class $DuaTableTable extends DuaTable
   String get aliasedName => _alias ?? actualTableName;
   @override
   String get actualTableName => $name;
-  static const String $name = 'dua_table';
+  static const String $name = 'dua';
   @override
-  VerificationContext validateIntegrity(Insertable<DuaTableDto> instance,
+  VerificationContext validateIntegrity(Insertable<DuaDto> instance,
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
@@ -166,136 +165,98 @@ class $DuaTableTable extends DuaTable
     if (data.containsKey('cat_id')) {
       context.handle(
           _catIdMeta, catId.isAcceptableOrUnknown(data['cat_id']!, _catIdMeta));
-    } else if (isInserting) {
-      context.missing(_catIdMeta);
     }
     if (data.containsKey('subcat_id')) {
       context.handle(_subcatIdMeta,
           subcatId.isAcceptableOrUnknown(data['subcat_id']!, _subcatIdMeta));
-    } else if (isInserting) {
-      context.missing(_subcatIdMeta);
     }
     if (data.containsKey('dua_id')) {
       context.handle(
           _duaIdMeta, duaId.isAcceptableOrUnknown(data['dua_id']!, _duaIdMeta));
-    } else if (isInserting) {
-      context.missing(_duaIdMeta);
     }
     if (data.containsKey('dua_name_bn')) {
       context.handle(
           _duaNameBnMeta,
           duaNameBn.isAcceptableOrUnknown(
               data['dua_name_bn']!, _duaNameBnMeta));
-    } else if (isInserting) {
-      context.missing(_duaNameBnMeta);
     }
     if (data.containsKey('dua_name_en')) {
       context.handle(
           _duaNameEnMeta,
           duaNameEn.isAcceptableOrUnknown(
               data['dua_name_en']!, _duaNameEnMeta));
-    } else if (isInserting) {
-      context.missing(_duaNameEnMeta);
     }
     if (data.containsKey('top_bn')) {
       context.handle(
           _topBnMeta, topBn.isAcceptableOrUnknown(data['top_bn']!, _topBnMeta));
-    } else if (isInserting) {
-      context.missing(_topBnMeta);
     }
     if (data.containsKey('top_en')) {
       context.handle(
           _topEnMeta, topEn.isAcceptableOrUnknown(data['top_en']!, _topEnMeta));
-    } else if (isInserting) {
-      context.missing(_topEnMeta);
     }
     if (data.containsKey('dua_arabic')) {
       context.handle(_duaArabicMeta,
           duaArabic.isAcceptableOrUnknown(data['dua_arabic']!, _duaArabicMeta));
-    } else if (isInserting) {
-      context.missing(_duaArabicMeta);
     }
     if (data.containsKey('dua_indopak')) {
       context.handle(
           _duaIndopakMeta,
           duaIndopak.isAcceptableOrUnknown(
               data['dua_indopak']!, _duaIndopakMeta));
-    } else if (isInserting) {
-      context.missing(_duaIndopakMeta);
     }
     if (data.containsKey('clean_arabic')) {
       context.handle(
           _cleanArabicMeta,
           cleanArabic.isAcceptableOrUnknown(
               data['clean_arabic']!, _cleanArabicMeta));
-    } else if (isInserting) {
-      context.missing(_cleanArabicMeta);
     }
     if (data.containsKey('transliteration_bn')) {
       context.handle(
           _transliterationBnMeta,
           transliterationBn.isAcceptableOrUnknown(
               data['transliteration_bn']!, _transliterationBnMeta));
-    } else if (isInserting) {
-      context.missing(_transliterationBnMeta);
     }
     if (data.containsKey('transliteration_en')) {
       context.handle(
           _transliterationEnMeta,
           transliterationEn.isAcceptableOrUnknown(
               data['transliteration_en']!, _transliterationEnMeta));
-    } else if (isInserting) {
-      context.missing(_transliterationEnMeta);
     }
     if (data.containsKey('translation_bn')) {
       context.handle(
           _translationBnMeta,
           translationBn.isAcceptableOrUnknown(
               data['translation_bn']!, _translationBnMeta));
-    } else if (isInserting) {
-      context.missing(_translationBnMeta);
     }
     if (data.containsKey('translation_en')) {
       context.handle(
           _translationEnMeta,
           translationEn.isAcceptableOrUnknown(
               data['translation_en']!, _translationEnMeta));
-    } else if (isInserting) {
-      context.missing(_translationEnMeta);
     }
     if (data.containsKey('bottom_en')) {
       context.handle(_bottomEnMeta,
           bottomEn.isAcceptableOrUnknown(data['bottom_en']!, _bottomEnMeta));
-    } else if (isInserting) {
-      context.missing(_bottomEnMeta);
     }
     if (data.containsKey('bottom_bn')) {
       context.handle(_bottomBnMeta,
           bottomBn.isAcceptableOrUnknown(data['bottom_bn']!, _bottomBnMeta));
-    } else if (isInserting) {
-      context.missing(_bottomBnMeta);
     }
     if (data.containsKey('refference_bn')) {
       context.handle(
           _refferenceBnMeta,
           refferenceBn.isAcceptableOrUnknown(
               data['refference_bn']!, _refferenceBnMeta));
-    } else if (isInserting) {
-      context.missing(_refferenceBnMeta);
     }
     if (data.containsKey('refference_en')) {
       context.handle(
           _refferenceEnMeta,
           refferenceEn.isAcceptableOrUnknown(
               data['refference_en']!, _refferenceEnMeta));
-    } else if (isInserting) {
-      context.missing(_refferenceEnMeta);
     }
     if (data.containsKey('audio')) {
       context.handle(
           _audioMeta, audio.isAcceptableOrUnknown(data['audio']!, _audioMeta));
-    } else if (isInserting) {
-      context.missing(_audioMeta);
     }
     return context;
   }
@@ -303,175 +264,248 @@ class $DuaTableTable extends DuaTable
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  DuaTableDto map(Map<String, dynamic> data, {String? tablePrefix}) {
+  DuaDto map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return DuaTableDto(
+    return DuaDto(
       id: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
       catId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}cat_id'])!,
+          .read(DriftSqlType.int, data['${effectivePrefix}cat_id']),
       subcatId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}subcat_id'])!,
+          .read(DriftSqlType.int, data['${effectivePrefix}subcat_id']),
       duaId: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}dua_id'])!,
+          .read(DriftSqlType.int, data['${effectivePrefix}dua_id']),
       duaNameBn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}dua_name_bn'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}dua_name_bn']),
       duaNameEn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}dua_name_en'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}dua_name_en']),
       topBn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}top_bn'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}top_bn']),
       topEn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}top_en'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}top_en']),
       duaArabic: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}dua_arabic'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}dua_arabic']),
       duaIndopak: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}dua_indopak'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}dua_indopak']),
       cleanArabic: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}clean_arabic'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}clean_arabic']),
       transliterationBn: attachedDatabase.typeMapping.read(
-          DriftSqlType.string, data['${effectivePrefix}transliteration_bn'])!,
+          DriftSqlType.string, data['${effectivePrefix}transliteration_bn']),
       transliterationEn: attachedDatabase.typeMapping.read(
-          DriftSqlType.string, data['${effectivePrefix}transliteration_en'])!,
+          DriftSqlType.string, data['${effectivePrefix}transliteration_en']),
       translationBn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}translation_bn'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}translation_bn']),
       translationEn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}translation_en'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}translation_en']),
       bottomEn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}bottom_en'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}bottom_en']),
       bottomBn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}bottom_bn'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}bottom_bn']),
       refferenceBn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}refference_bn'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}refference_bn']),
       refferenceEn: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}refference_en'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}refference_en']),
       audio: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}audio'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}audio']),
     );
   }
 
   @override
-  $DuaTableTable createAlias(String alias) {
-    return $DuaTableTable(attachedDatabase, alias);
+  $DuaTable createAlias(String alias) {
+    return $DuaTable(attachedDatabase, alias);
   }
 }
 
-class DuaTableDto extends DataClass implements Insertable<DuaTableDto> {
+class DuaDto extends DataClass implements Insertable<DuaDto> {
   final int id;
-  final int catId;
-  final int subcatId;
-  final int duaId;
-  final String duaNameBn;
-  final String duaNameEn;
-  final String topBn;
-  final String topEn;
-  final String duaArabic;
-  final String duaIndopak;
-  final String cleanArabic;
-  final String transliterationBn;
-  final String transliterationEn;
-  final String translationBn;
-  final String translationEn;
-  final String bottomEn;
-  final String bottomBn;
-  final String refferenceBn;
-  final String refferenceEn;
-  final String audio;
-  const DuaTableDto(
+  final int? catId;
+  final int? subcatId;
+  final int? duaId;
+  final String? duaNameBn;
+  final String? duaNameEn;
+  final String? topBn;
+  final String? topEn;
+  final String? duaArabic;
+  final String? duaIndopak;
+  final String? cleanArabic;
+  final String? transliterationBn;
+  final String? transliterationEn;
+  final String? translationBn;
+  final String? translationEn;
+  final String? bottomEn;
+  final String? bottomBn;
+  final String? refferenceBn;
+  final String? refferenceEn;
+  final String? audio;
+  const DuaDto(
       {required this.id,
-      required this.catId,
-      required this.subcatId,
-      required this.duaId,
-      required this.duaNameBn,
-      required this.duaNameEn,
-      required this.topBn,
-      required this.topEn,
-      required this.duaArabic,
-      required this.duaIndopak,
-      required this.cleanArabic,
-      required this.transliterationBn,
-      required this.transliterationEn,
-      required this.translationBn,
-      required this.translationEn,
-      required this.bottomEn,
-      required this.bottomBn,
-      required this.refferenceBn,
-      required this.refferenceEn,
-      required this.audio});
+      this.catId,
+      this.subcatId,
+      this.duaId,
+      this.duaNameBn,
+      this.duaNameEn,
+      this.topBn,
+      this.topEn,
+      this.duaArabic,
+      this.duaIndopak,
+      this.cleanArabic,
+      this.transliterationBn,
+      this.transliterationEn,
+      this.translationBn,
+      this.translationEn,
+      this.bottomEn,
+      this.bottomBn,
+      this.refferenceBn,
+      this.refferenceEn,
+      this.audio});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
-    map['cat_id'] = Variable<int>(catId);
-    map['subcat_id'] = Variable<int>(subcatId);
-    map['dua_id'] = Variable<int>(duaId);
-    map['dua_name_bn'] = Variable<String>(duaNameBn);
-    map['dua_name_en'] = Variable<String>(duaNameEn);
-    map['top_bn'] = Variable<String>(topBn);
-    map['top_en'] = Variable<String>(topEn);
-    map['dua_arabic'] = Variable<String>(duaArabic);
-    map['dua_indopak'] = Variable<String>(duaIndopak);
-    map['clean_arabic'] = Variable<String>(cleanArabic);
-    map['transliteration_bn'] = Variable<String>(transliterationBn);
-    map['transliteration_en'] = Variable<String>(transliterationEn);
-    map['translation_bn'] = Variable<String>(translationBn);
-    map['translation_en'] = Variable<String>(translationEn);
-    map['bottom_en'] = Variable<String>(bottomEn);
-    map['bottom_bn'] = Variable<String>(bottomBn);
-    map['refference_bn'] = Variable<String>(refferenceBn);
-    map['refference_en'] = Variable<String>(refferenceEn);
-    map['audio'] = Variable<String>(audio);
+    if (!nullToAbsent || catId != null) {
+      map['cat_id'] = Variable<int>(catId);
+    }
+    if (!nullToAbsent || subcatId != null) {
+      map['subcat_id'] = Variable<int>(subcatId);
+    }
+    if (!nullToAbsent || duaId != null) {
+      map['dua_id'] = Variable<int>(duaId);
+    }
+    if (!nullToAbsent || duaNameBn != null) {
+      map['dua_name_bn'] = Variable<String>(duaNameBn);
+    }
+    if (!nullToAbsent || duaNameEn != null) {
+      map['dua_name_en'] = Variable<String>(duaNameEn);
+    }
+    if (!nullToAbsent || topBn != null) {
+      map['top_bn'] = Variable<String>(topBn);
+    }
+    if (!nullToAbsent || topEn != null) {
+      map['top_en'] = Variable<String>(topEn);
+    }
+    if (!nullToAbsent || duaArabic != null) {
+      map['dua_arabic'] = Variable<String>(duaArabic);
+    }
+    if (!nullToAbsent || duaIndopak != null) {
+      map['dua_indopak'] = Variable<String>(duaIndopak);
+    }
+    if (!nullToAbsent || cleanArabic != null) {
+      map['clean_arabic'] = Variable<String>(cleanArabic);
+    }
+    if (!nullToAbsent || transliterationBn != null) {
+      map['transliteration_bn'] = Variable<String>(transliterationBn);
+    }
+    if (!nullToAbsent || transliterationEn != null) {
+      map['transliteration_en'] = Variable<String>(transliterationEn);
+    }
+    if (!nullToAbsent || translationBn != null) {
+      map['translation_bn'] = Variable<String>(translationBn);
+    }
+    if (!nullToAbsent || translationEn != null) {
+      map['translation_en'] = Variable<String>(translationEn);
+    }
+    if (!nullToAbsent || bottomEn != null) {
+      map['bottom_en'] = Variable<String>(bottomEn);
+    }
+    if (!nullToAbsent || bottomBn != null) {
+      map['bottom_bn'] = Variable<String>(bottomBn);
+    }
+    if (!nullToAbsent || refferenceBn != null) {
+      map['refference_bn'] = Variable<String>(refferenceBn);
+    }
+    if (!nullToAbsent || refferenceEn != null) {
+      map['refference_en'] = Variable<String>(refferenceEn);
+    }
+    if (!nullToAbsent || audio != null) {
+      map['audio'] = Variable<String>(audio);
+    }
     return map;
   }
 
-  DuaTableCompanion toCompanion(bool nullToAbsent) {
-    return DuaTableCompanion(
+  DuaCompanion toCompanion(bool nullToAbsent) {
+    return DuaCompanion(
       id: Value(id),
-      catId: Value(catId),
-      subcatId: Value(subcatId),
-      duaId: Value(duaId),
-      duaNameBn: Value(duaNameBn),
-      duaNameEn: Value(duaNameEn),
-      topBn: Value(topBn),
-      topEn: Value(topEn),
-      duaArabic: Value(duaArabic),
-      duaIndopak: Value(duaIndopak),
-      cleanArabic: Value(cleanArabic),
-      transliterationBn: Value(transliterationBn),
-      transliterationEn: Value(transliterationEn),
-      translationBn: Value(translationBn),
-      translationEn: Value(translationEn),
-      bottomEn: Value(bottomEn),
-      bottomBn: Value(bottomBn),
-      refferenceBn: Value(refferenceBn),
-      refferenceEn: Value(refferenceEn),
-      audio: Value(audio),
+      catId:
+          catId == null && nullToAbsent ? const Value.absent() : Value(catId),
+      subcatId: subcatId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(subcatId),
+      duaId:
+          duaId == null && nullToAbsent ? const Value.absent() : Value(duaId),
+      duaNameBn: duaNameBn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(duaNameBn),
+      duaNameEn: duaNameEn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(duaNameEn),
+      topBn:
+          topBn == null && nullToAbsent ? const Value.absent() : Value(topBn),
+      topEn:
+          topEn == null && nullToAbsent ? const Value.absent() : Value(topEn),
+      duaArabic: duaArabic == null && nullToAbsent
+          ? const Value.absent()
+          : Value(duaArabic),
+      duaIndopak: duaIndopak == null && nullToAbsent
+          ? const Value.absent()
+          : Value(duaIndopak),
+      cleanArabic: cleanArabic == null && nullToAbsent
+          ? const Value.absent()
+          : Value(cleanArabic),
+      transliterationBn: transliterationBn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(transliterationBn),
+      transliterationEn: transliterationEn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(transliterationEn),
+      translationBn: translationBn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(translationBn),
+      translationEn: translationEn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(translationEn),
+      bottomEn: bottomEn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(bottomEn),
+      bottomBn: bottomBn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(bottomBn),
+      refferenceBn: refferenceBn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(refferenceBn),
+      refferenceEn: refferenceEn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(refferenceEn),
+      audio:
+          audio == null && nullToAbsent ? const Value.absent() : Value(audio),
     );
   }
 
-  factory DuaTableDto.fromJson(Map<String, dynamic> json,
+  factory DuaDto.fromJson(Map<String, dynamic> json,
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return DuaTableDto(
+    return DuaDto(
       id: serializer.fromJson<int>(json['id']),
-      catId: serializer.fromJson<int>(json['catId']),
-      subcatId: serializer.fromJson<int>(json['subcatId']),
-      duaId: serializer.fromJson<int>(json['duaId']),
-      duaNameBn: serializer.fromJson<String>(json['duaNameBn']),
-      duaNameEn: serializer.fromJson<String>(json['duaNameEn']),
-      topBn: serializer.fromJson<String>(json['topBn']),
-      topEn: serializer.fromJson<String>(json['topEn']),
-      duaArabic: serializer.fromJson<String>(json['duaArabic']),
-      duaIndopak: serializer.fromJson<String>(json['duaIndopak']),
-      cleanArabic: serializer.fromJson<String>(json['cleanArabic']),
-      transliterationBn: serializer.fromJson<String>(json['transliterationBn']),
-      transliterationEn: serializer.fromJson<String>(json['transliterationEn']),
-      translationBn: serializer.fromJson<String>(json['translationBn']),
-      translationEn: serializer.fromJson<String>(json['translationEn']),
-      bottomEn: serializer.fromJson<String>(json['bottomEn']),
-      bottomBn: serializer.fromJson<String>(json['bottomBn']),
-      refferenceBn: serializer.fromJson<String>(json['refferenceBn']),
-      refferenceEn: serializer.fromJson<String>(json['refferenceEn']),
-      audio: serializer.fromJson<String>(json['audio']),
+      catId: serializer.fromJson<int?>(json['catId']),
+      subcatId: serializer.fromJson<int?>(json['subcatId']),
+      duaId: serializer.fromJson<int?>(json['duaId']),
+      duaNameBn: serializer.fromJson<String?>(json['duaNameBn']),
+      duaNameEn: serializer.fromJson<String?>(json['duaNameEn']),
+      topBn: serializer.fromJson<String?>(json['topBn']),
+      topEn: serializer.fromJson<String?>(json['topEn']),
+      duaArabic: serializer.fromJson<String?>(json['duaArabic']),
+      duaIndopak: serializer.fromJson<String?>(json['duaIndopak']),
+      cleanArabic: serializer.fromJson<String?>(json['cleanArabic']),
+      transliterationBn:
+          serializer.fromJson<String?>(json['transliterationBn']),
+      transliterationEn:
+          serializer.fromJson<String?>(json['transliterationEn']),
+      translationBn: serializer.fromJson<String?>(json['translationBn']),
+      translationEn: serializer.fromJson<String?>(json['translationEn']),
+      bottomEn: serializer.fromJson<String?>(json['bottomEn']),
+      bottomBn: serializer.fromJson<String?>(json['bottomBn']),
+      refferenceBn: serializer.fromJson<String?>(json['refferenceBn']),
+      refferenceEn: serializer.fromJson<String?>(json['refferenceEn']),
+      audio: serializer.fromJson<String?>(json['audio']),
     );
   }
   @override
@@ -479,74 +513,82 @@ class DuaTableDto extends DataClass implements Insertable<DuaTableDto> {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
-      'catId': serializer.toJson<int>(catId),
-      'subcatId': serializer.toJson<int>(subcatId),
-      'duaId': serializer.toJson<int>(duaId),
-      'duaNameBn': serializer.toJson<String>(duaNameBn),
-      'duaNameEn': serializer.toJson<String>(duaNameEn),
-      'topBn': serializer.toJson<String>(topBn),
-      'topEn': serializer.toJson<String>(topEn),
-      'duaArabic': serializer.toJson<String>(duaArabic),
-      'duaIndopak': serializer.toJson<String>(duaIndopak),
-      'cleanArabic': serializer.toJson<String>(cleanArabic),
-      'transliterationBn': serializer.toJson<String>(transliterationBn),
-      'transliterationEn': serializer.toJson<String>(transliterationEn),
-      'translationBn': serializer.toJson<String>(translationBn),
-      'translationEn': serializer.toJson<String>(translationEn),
-      'bottomEn': serializer.toJson<String>(bottomEn),
-      'bottomBn': serializer.toJson<String>(bottomBn),
-      'refferenceBn': serializer.toJson<String>(refferenceBn),
-      'refferenceEn': serializer.toJson<String>(refferenceEn),
-      'audio': serializer.toJson<String>(audio),
+      'catId': serializer.toJson<int?>(catId),
+      'subcatId': serializer.toJson<int?>(subcatId),
+      'duaId': serializer.toJson<int?>(duaId),
+      'duaNameBn': serializer.toJson<String?>(duaNameBn),
+      'duaNameEn': serializer.toJson<String?>(duaNameEn),
+      'topBn': serializer.toJson<String?>(topBn),
+      'topEn': serializer.toJson<String?>(topEn),
+      'duaArabic': serializer.toJson<String?>(duaArabic),
+      'duaIndopak': serializer.toJson<String?>(duaIndopak),
+      'cleanArabic': serializer.toJson<String?>(cleanArabic),
+      'transliterationBn': serializer.toJson<String?>(transliterationBn),
+      'transliterationEn': serializer.toJson<String?>(transliterationEn),
+      'translationBn': serializer.toJson<String?>(translationBn),
+      'translationEn': serializer.toJson<String?>(translationEn),
+      'bottomEn': serializer.toJson<String?>(bottomEn),
+      'bottomBn': serializer.toJson<String?>(bottomBn),
+      'refferenceBn': serializer.toJson<String?>(refferenceBn),
+      'refferenceEn': serializer.toJson<String?>(refferenceEn),
+      'audio': serializer.toJson<String?>(audio),
     };
   }
 
-  DuaTableDto copyWith(
+  DuaDto copyWith(
           {int? id,
-          int? catId,
-          int? subcatId,
-          int? duaId,
-          String? duaNameBn,
-          String? duaNameEn,
-          String? topBn,
-          String? topEn,
-          String? duaArabic,
-          String? duaIndopak,
-          String? cleanArabic,
-          String? transliterationBn,
-          String? transliterationEn,
-          String? translationBn,
-          String? translationEn,
-          String? bottomEn,
-          String? bottomBn,
-          String? refferenceBn,
-          String? refferenceEn,
-          String? audio}) =>
-      DuaTableDto(
+          Value<int?> catId = const Value.absent(),
+          Value<int?> subcatId = const Value.absent(),
+          Value<int?> duaId = const Value.absent(),
+          Value<String?> duaNameBn = const Value.absent(),
+          Value<String?> duaNameEn = const Value.absent(),
+          Value<String?> topBn = const Value.absent(),
+          Value<String?> topEn = const Value.absent(),
+          Value<String?> duaArabic = const Value.absent(),
+          Value<String?> duaIndopak = const Value.absent(),
+          Value<String?> cleanArabic = const Value.absent(),
+          Value<String?> transliterationBn = const Value.absent(),
+          Value<String?> transliterationEn = const Value.absent(),
+          Value<String?> translationBn = const Value.absent(),
+          Value<String?> translationEn = const Value.absent(),
+          Value<String?> bottomEn = const Value.absent(),
+          Value<String?> bottomBn = const Value.absent(),
+          Value<String?> refferenceBn = const Value.absent(),
+          Value<String?> refferenceEn = const Value.absent(),
+          Value<String?> audio = const Value.absent()}) =>
+      DuaDto(
         id: id ?? this.id,
-        catId: catId ?? this.catId,
-        subcatId: subcatId ?? this.subcatId,
-        duaId: duaId ?? this.duaId,
-        duaNameBn: duaNameBn ?? this.duaNameBn,
-        duaNameEn: duaNameEn ?? this.duaNameEn,
-        topBn: topBn ?? this.topBn,
-        topEn: topEn ?? this.topEn,
-        duaArabic: duaArabic ?? this.duaArabic,
-        duaIndopak: duaIndopak ?? this.duaIndopak,
-        cleanArabic: cleanArabic ?? this.cleanArabic,
-        transliterationBn: transliterationBn ?? this.transliterationBn,
-        transliterationEn: transliterationEn ?? this.transliterationEn,
-        translationBn: translationBn ?? this.translationBn,
-        translationEn: translationEn ?? this.translationEn,
-        bottomEn: bottomEn ?? this.bottomEn,
-        bottomBn: bottomBn ?? this.bottomBn,
-        refferenceBn: refferenceBn ?? this.refferenceBn,
-        refferenceEn: refferenceEn ?? this.refferenceEn,
-        audio: audio ?? this.audio,
+        catId: catId.present ? catId.value : this.catId,
+        subcatId: subcatId.present ? subcatId.value : this.subcatId,
+        duaId: duaId.present ? duaId.value : this.duaId,
+        duaNameBn: duaNameBn.present ? duaNameBn.value : this.duaNameBn,
+        duaNameEn: duaNameEn.present ? duaNameEn.value : this.duaNameEn,
+        topBn: topBn.present ? topBn.value : this.topBn,
+        topEn: topEn.present ? topEn.value : this.topEn,
+        duaArabic: duaArabic.present ? duaArabic.value : this.duaArabic,
+        duaIndopak: duaIndopak.present ? duaIndopak.value : this.duaIndopak,
+        cleanArabic: cleanArabic.present ? cleanArabic.value : this.cleanArabic,
+        transliterationBn: transliterationBn.present
+            ? transliterationBn.value
+            : this.transliterationBn,
+        transliterationEn: transliterationEn.present
+            ? transliterationEn.value
+            : this.transliterationEn,
+        translationBn:
+            translationBn.present ? translationBn.value : this.translationBn,
+        translationEn:
+            translationEn.present ? translationEn.value : this.translationEn,
+        bottomEn: bottomEn.present ? bottomEn.value : this.bottomEn,
+        bottomBn: bottomBn.present ? bottomBn.value : this.bottomBn,
+        refferenceBn:
+            refferenceBn.present ? refferenceBn.value : this.refferenceBn,
+        refferenceEn:
+            refferenceEn.present ? refferenceEn.value : this.refferenceEn,
+        audio: audio.present ? audio.value : this.audio,
       );
   @override
   String toString() {
-    return (StringBuffer('DuaTableDto(')
+    return (StringBuffer('DuaDto(')
           ..write('id: $id, ')
           ..write('catId: $catId, ')
           ..write('subcatId: $subcatId, ')
@@ -596,7 +638,7 @@ class DuaTableDto extends DataClass implements Insertable<DuaTableDto> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is DuaTableDto &&
+      (other is DuaDto &&
           other.id == this.id &&
           other.catId == this.catId &&
           other.subcatId == this.subcatId &&
@@ -619,28 +661,28 @@ class DuaTableDto extends DataClass implements Insertable<DuaTableDto> {
           other.audio == this.audio);
 }
 
-class DuaTableCompanion extends UpdateCompanion<DuaTableDto> {
+class DuaCompanion extends UpdateCompanion<DuaDto> {
   final Value<int> id;
-  final Value<int> catId;
-  final Value<int> subcatId;
-  final Value<int> duaId;
-  final Value<String> duaNameBn;
-  final Value<String> duaNameEn;
-  final Value<String> topBn;
-  final Value<String> topEn;
-  final Value<String> duaArabic;
-  final Value<String> duaIndopak;
-  final Value<String> cleanArabic;
-  final Value<String> transliterationBn;
-  final Value<String> transliterationEn;
-  final Value<String> translationBn;
-  final Value<String> translationEn;
-  final Value<String> bottomEn;
-  final Value<String> bottomBn;
-  final Value<String> refferenceBn;
-  final Value<String> refferenceEn;
-  final Value<String> audio;
-  const DuaTableCompanion({
+  final Value<int?> catId;
+  final Value<int?> subcatId;
+  final Value<int?> duaId;
+  final Value<String?> duaNameBn;
+  final Value<String?> duaNameEn;
+  final Value<String?> topBn;
+  final Value<String?> topEn;
+  final Value<String?> duaArabic;
+  final Value<String?> duaIndopak;
+  final Value<String?> cleanArabic;
+  final Value<String?> transliterationBn;
+  final Value<String?> transliterationEn;
+  final Value<String?> translationBn;
+  final Value<String?> translationEn;
+  final Value<String?> bottomEn;
+  final Value<String?> bottomBn;
+  final Value<String?> refferenceBn;
+  final Value<String?> refferenceEn;
+  final Value<String?> audio;
+  const DuaCompanion({
     this.id = const Value.absent(),
     this.catId = const Value.absent(),
     this.subcatId = const Value.absent(),
@@ -662,47 +704,29 @@ class DuaTableCompanion extends UpdateCompanion<DuaTableDto> {
     this.refferenceEn = const Value.absent(),
     this.audio = const Value.absent(),
   });
-  DuaTableCompanion.insert({
+  DuaCompanion.insert({
     this.id = const Value.absent(),
-    required int catId,
-    required int subcatId,
-    required int duaId,
-    required String duaNameBn,
-    required String duaNameEn,
-    required String topBn,
-    required String topEn,
-    required String duaArabic,
-    required String duaIndopak,
-    required String cleanArabic,
-    required String transliterationBn,
-    required String transliterationEn,
-    required String translationBn,
-    required String translationEn,
-    required String bottomEn,
-    required String bottomBn,
-    required String refferenceBn,
-    required String refferenceEn,
-    required String audio,
-  })  : catId = Value(catId),
-        subcatId = Value(subcatId),
-        duaId = Value(duaId),
-        duaNameBn = Value(duaNameBn),
-        duaNameEn = Value(duaNameEn),
-        topBn = Value(topBn),
-        topEn = Value(topEn),
-        duaArabic = Value(duaArabic),
-        duaIndopak = Value(duaIndopak),
-        cleanArabic = Value(cleanArabic),
-        transliterationBn = Value(transliterationBn),
-        transliterationEn = Value(transliterationEn),
-        translationBn = Value(translationBn),
-        translationEn = Value(translationEn),
-        bottomEn = Value(bottomEn),
-        bottomBn = Value(bottomBn),
-        refferenceBn = Value(refferenceBn),
-        refferenceEn = Value(refferenceEn),
-        audio = Value(audio);
-  static Insertable<DuaTableDto> custom({
+    this.catId = const Value.absent(),
+    this.subcatId = const Value.absent(),
+    this.duaId = const Value.absent(),
+    this.duaNameBn = const Value.absent(),
+    this.duaNameEn = const Value.absent(),
+    this.topBn = const Value.absent(),
+    this.topEn = const Value.absent(),
+    this.duaArabic = const Value.absent(),
+    this.duaIndopak = const Value.absent(),
+    this.cleanArabic = const Value.absent(),
+    this.transliterationBn = const Value.absent(),
+    this.transliterationEn = const Value.absent(),
+    this.translationBn = const Value.absent(),
+    this.translationEn = const Value.absent(),
+    this.bottomEn = const Value.absent(),
+    this.bottomBn = const Value.absent(),
+    this.refferenceBn = const Value.absent(),
+    this.refferenceEn = const Value.absent(),
+    this.audio = const Value.absent(),
+  });
+  static Insertable<DuaDto> custom({
     Expression<int>? id,
     Expression<int>? catId,
     Expression<int>? subcatId,
@@ -748,28 +772,28 @@ class DuaTableCompanion extends UpdateCompanion<DuaTableDto> {
     });
   }
 
-  DuaTableCompanion copyWith(
+  DuaCompanion copyWith(
       {Value<int>? id,
-      Value<int>? catId,
-      Value<int>? subcatId,
-      Value<int>? duaId,
-      Value<String>? duaNameBn,
-      Value<String>? duaNameEn,
-      Value<String>? topBn,
-      Value<String>? topEn,
-      Value<String>? duaArabic,
-      Value<String>? duaIndopak,
-      Value<String>? cleanArabic,
-      Value<String>? transliterationBn,
-      Value<String>? transliterationEn,
-      Value<String>? translationBn,
-      Value<String>? translationEn,
-      Value<String>? bottomEn,
-      Value<String>? bottomBn,
-      Value<String>? refferenceBn,
-      Value<String>? refferenceEn,
-      Value<String>? audio}) {
-    return DuaTableCompanion(
+      Value<int?>? catId,
+      Value<int?>? subcatId,
+      Value<int?>? duaId,
+      Value<String?>? duaNameBn,
+      Value<String?>? duaNameEn,
+      Value<String?>? topBn,
+      Value<String?>? topEn,
+      Value<String?>? duaArabic,
+      Value<String?>? duaIndopak,
+      Value<String?>? cleanArabic,
+      Value<String?>? transliterationBn,
+      Value<String?>? transliterationEn,
+      Value<String?>? translationBn,
+      Value<String?>? translationEn,
+      Value<String?>? bottomEn,
+      Value<String?>? bottomBn,
+      Value<String?>? refferenceBn,
+      Value<String?>? refferenceEn,
+      Value<String?>? audio}) {
+    return DuaCompanion(
       id: id ?? this.id,
       catId: catId ?? this.catId,
       subcatId: subcatId ?? this.subcatId,
@@ -861,7 +885,7 @@ class DuaTableCompanion extends UpdateCompanion<DuaTableDto> {
 
   @override
   String toString() {
-    return (StringBuffer('DuaTableCompanion(')
+    return (StringBuffer('DuaCompanion(')
           ..write('id: $id, ')
           ..write('catId: $catId, ')
           ..write('subcatId: $subcatId, ')
@@ -889,10 +913,10 @@ class DuaTableCompanion extends UpdateCompanion<DuaTableDto> {
 
 abstract class _$DuaDatabase extends GeneratedDatabase {
   _$DuaDatabase(QueryExecutor e) : super(e);
-  late final $DuaTableTable duaTable = $DuaTableTable(this);
+  late final $DuaTable dua = $DuaTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
-  List<DatabaseSchemaEntity> get allSchemaEntities => [duaTable];
+  List<DatabaseSchemaEntity> get allSchemaEntities => [dua];
 }

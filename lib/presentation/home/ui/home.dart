@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget {
 
   void getData() async{
     var a = await locate<DuaDatabase>().duaTables;
+    print("=========> $a");
   }
 
   @override

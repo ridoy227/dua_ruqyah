@@ -69,7 +69,6 @@ Future<void> _moveDatabaseFromAssetToInternal(File file) async {
 // spent 2-3 hours to find this solution
 // also make sure to use writeAsBytesSync instead of writeAsBytes
 Future<void> writeFileAsBytesInIsolate(File file, List<int> dbAsBytes) async {
-  print("action 1");
   await compute(_writeFileAsBytes, (file, dbAsBytes));
 }
 
@@ -81,7 +80,6 @@ void _writeFileAsBytes((File, List<int>) param) {
 }
 
 Future<File> _getDatabaseFile() async {
-  print("action 2");
 
   final String dbPath = await _getDatabasePath();
   final File file = File(dbPath);
@@ -89,7 +87,6 @@ Future<File> _getDatabaseFile() async {
 }
 
 Future<String> _getDatabasePath() async {
-  print("action 3");
 
   final Directory databaseFolder = await getApplicationDocumentsDirectory();
   final String dbPath = path.join(databaseFolder.path, _duaDbFileName);
@@ -97,7 +94,6 @@ Future<String> _getDatabasePath() async {
 }
 
 Future<QueryExecutor> get _databaseOpener async {
-  print("action 4");
 
   final File file = await _getDatabaseFile();
   await _moveDatabaseFromAssetToInternal(file);
