@@ -1,7 +1,9 @@
 import 'package:dua_ruqyah/data/mappers/category_mapper.dart';
+import 'package:dua_ruqyah/data/mappers/dua_main_mapper.dart';
 import 'package:dua_ruqyah/data/mappers/sub_category_mapper.dart';
 import 'package:dua_ruqyah/data/services/dua_database/dua_database_service.dart';
 import 'package:dua_ruqyah/domain/entities/category_entity.dart';
+import 'package:dua_ruqyah/domain/entities/dua_main_entity.dart';
 import 'package:dua_ruqyah/domain/entities/sub_category_entity.dart';
 
 class DuaLocalDataSource{
@@ -29,4 +31,9 @@ class DuaLocalDataSource{
     return subCategoryEntitys;
   }
 
+   Future<List<DuaMainEntity>> getDuaByCategoryIdAndSubCategoryId({required int catID, required int subCatId}) async {
+    final List<DuaMainDto> subCategoryDto = await _duaDatabase.getSubDuaByCategoryAndSubCategoryId(categoryId: catID, subCategoryId: subCatId);
+    final List<DuaMainEntity> subCategoryEntitys = await subCategoryDto.toDuaMain();
+    return subCategoryEntitys;
+  }
 }

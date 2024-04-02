@@ -4,15 +4,21 @@ import 'package:dua_ruqyah/core/base/base_presenter.dart';
 import 'package:dua_ruqyah/domain/entities/category_entity.dart';
 import 'package:dua_ruqyah/domain/entities/sub_category_entity.dart';
 import 'package:dua_ruqyah/domain/use_case/get_category_use_case.dart';
+import 'package:dua_ruqyah/domain/use_case/get_dua_repository.dart';
 import 'package:dua_ruqyah/domain/use_case/get_sub_category_use_case.dart';
 import 'package:dua_ruqyah/presentation/home/presenter/home_ui_state.dart';
 import 'package:fpdart/fpdart.dart';
 
 class HomePresenter extends BasePresenter<HomeUiState> {
-  HomePresenter(this._getCategoryUseCase, this._getSubCategoryUseCase);
+  HomePresenter(
+    this._getCategoryUseCase, 
+    this._getSubCategoryUseCase, 
+    this._getDuaUseCase
+  );
 
   final GetCategoryUseCase _getCategoryUseCase;
   final GetSubCategoryUseCase _getSubCategoryUseCase;
+  final GetDuaUseCase _getDuaUseCase;
 
   final Obs<HomeUiState> uiState = Obs(HomeUiState.empty());
 

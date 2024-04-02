@@ -18,9 +18,7 @@ class CategoryListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-    
-     uiState.categoryList.isEmpty
+    return uiState.categoryList.isEmpty
         ? Container(
             height: 30,
             width: 30,

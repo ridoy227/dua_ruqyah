@@ -1,6 +1,7 @@
 
 import 'package:dua_ruqyah/core/base/base_ui_state.dart';
 import 'package:dua_ruqyah/domain/entities/category_entity.dart';
+import 'package:dua_ruqyah/domain/entities/dua_main_entity.dart';
 import 'package:dua_ruqyah/domain/entities/sub_category_entity.dart';
 
 class HomeUiState extends BaseUiState {
@@ -8,7 +9,8 @@ class HomeUiState extends BaseUiState {
     required this.categoryList,
     required super.isLoading,
     required super.userMessage,
-    required this.subCategoryList
+    required this.subCategoryList,
+    required this.duaList
 
   });
 
@@ -16,6 +18,7 @@ class HomeUiState extends BaseUiState {
     return const HomeUiState(
       categoryList: [],
       subCategoryList: [],
+      duaList: [],
       isLoading: true,
       userMessage: null
      
@@ -24,6 +27,7 @@ class HomeUiState extends BaseUiState {
 
   final List<CategoryEntity> categoryList;
   final List<SubCategoryEntity> subCategoryList;
+  final List<DuaMainEntity> duaList;
   
 
   @override
@@ -32,6 +36,7 @@ class HomeUiState extends BaseUiState {
         isLoading,
         categoryList,
         subCategoryList,
+        duaList,
       ];
 
   HomeUiState copyWith({
@@ -39,11 +44,13 @@ class HomeUiState extends BaseUiState {
     String? errorMessage,
     bool? isLoading,
     List<SubCategoryEntity>? subCategoryList,
+    List<DuaMainEntity>? duaList,
 
   }) {
     return HomeUiState(
       categoryList: categoryList?? this.categoryList,
       subCategoryList: subCategoryList?? this.subCategoryList,
+      duaList: duaList?? this.duaList,
       userMessage: errorMessage ?? userMessage,
       isLoading: isLoading ?? this.isLoading,
     );

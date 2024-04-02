@@ -1,12 +1,17 @@
 import 'package:drift/drift.dart';
 import 'package:dua_ruqyah/data/services/dua_database/database_loader.dart';
 import 'package:dua_ruqyah/data/services/dua_database/table/category_table.dart';
+import 'package:dua_ruqyah/data/services/dua_database/table/dua_main_table.dart';
 import 'package:dua_ruqyah/data/services/dua_database/table/dua_subcategory.dart';
 
 part 'dua_database_service.g.dart';
 
 @DriftDatabase(
-  tables: [DuaSubcategory, DuaCategory],
+  tables: [
+    DuaMain,
+    DuaSubcategory, 
+    DuaCategory
+    ],
 )
 class DuaDatabase extends _$DuaDatabase {
   DuaDatabase({QueryExecutor? queryExecutor})
@@ -27,6 +32,16 @@ class DuaDatabase extends _$DuaDatabase {
           // await migrator.createTable(bookmarks);
         },
       );
+
+  Future<List<DuaMainDto>> get duaList => select(duaMain).get();
+
+  Future<List<DuaMainDto>> getSubDuaByCategoryAndSubCategoryId({
+    required int categoryId,
+    required int subCategoryId,
+  }) =>
+      (select(duaMain)..where((tbl) => tbl.catId.equals(categoryId) & tbl.subcatId.equals(subCategoryId)))
+          .get();
+
 
   Future<List<DuaCategoryDto>> get categoryList => select(duaCategory).get();
 
