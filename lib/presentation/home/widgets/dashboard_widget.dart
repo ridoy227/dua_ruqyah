@@ -19,7 +19,16 @@ class DashboardWidget extends StatelessWidget {
         horizontal: twentyPx
       ),
       width: 80.percentWidth,
+      decoration: BoxDecoration(
       color: theme.cardColor,
+      borderRadius: BorderRadius.circular(tenPx),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey[200]!,
+          offset: Offset(00, 02)
+        )
+      ]
+      ),
       child: GridView.builder(
         itemCount: dashboardList.length,
         padding: EdgeInsets.zero,
@@ -36,7 +45,7 @@ class DashboardWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Icon(Icons.zoom_out_map),
+              const Icon(Icons.workspace_premium_outlined),
                Text(
                   dashboardList[index],
                   style: theme.textTheme.bodyMedium!.copyWith(

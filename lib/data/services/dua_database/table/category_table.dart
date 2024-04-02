@@ -1,7 +1,7 @@
 import 'package:drift/drift.dart';
 
-@DataClassName("CategoryDto")
-class Category extends Table {
+@DataClassName("DuaCategoryDto")
+class DuaCategory extends Table {
   IntColumn get id => integer().autoIncrement()();
   IntColumn get catId => integer().nullable()();
   TextColumn get catNameBn => text().nullable()();

@@ -4,9 +4,9 @@ import 'package:dua_ruqyah/data/services/runnig_compute.dart';
 import 'package:dua_ruqyah/domain/entities/category_entity.dart';
 
 
-  extension DtoToCategoryEntityMapper on List<CategoryDto> {
+  extension DtoToCategoryEntityMapper on List<DuaCategoryDto> {
     Future<List<CategoryEntity>> toCategory() async {
-      final List<CategoryDto> catDtoList = this;
+      final List<DuaCategoryDto> catDtoList = this;
       final List<CategoryEntity> categoryEntitys = await compute( _convertCategoryDtoToCategory, catDtoList);
       return categoryEntitys;
     }
@@ -15,7 +15,7 @@ import 'package:dua_ruqyah/domain/entities/category_entity.dart';
 
 
 
-  List<CategoryEntity> _convertCategoryDtoToCategory(List<CategoryDto> catDtoList) => catDtoList.map(_convertDtoToCategoryEntity).toList();
+  List<CategoryEntity> _convertCategoryDtoToCategory(List<DuaCategoryDto> catDtoList) => catDtoList.map(_convertDtoToCategoryEntity).toList();
 
 
 
@@ -23,7 +23,7 @@ import 'package:dua_ruqyah/domain/entities/category_entity.dart';
 
 
 
-  CategoryEntity _convertDtoToCategoryEntity(CategoryDto category) {
+  CategoryEntity _convertDtoToCategoryEntity(DuaCategoryDto category) {
     return CategoryEntity(
       id: category.id, 
       catId: category.catId!,

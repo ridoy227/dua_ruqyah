@@ -8,6 +8,7 @@ import 'package:dua_ruqyah/data/services/error_message_handler_impl.dart';
 import 'package:dua_ruqyah/domain/repositories/category_repository.dart';
 import 'package:dua_ruqyah/domain/services/error_message_handler.dart';
 import 'package:dua_ruqyah/domain/use_case/get_category_use_case.dart';
+import 'package:dua_ruqyah/domain/use_case/get_sub_category_use_case.dart';
 import 'package:dua_ruqyah/presentation/home/presenter/home_presenter.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stacked_themes/stacked_themes.dart';
@@ -165,6 +166,7 @@ class ServiceLocator {
         () => loadPresenter(
           HomePresenter(
             locate(),
+            locate()
          
           ),
         ),
@@ -179,7 +181,9 @@ class ServiceLocator {
 
   Future<void> _setUpUseCase() async {
     _serviceLocator
-      ..registerFactory(() => GetCategoryUseCase(locate(), locate()));
+      ..registerFactory(() => GetCategoryUseCase(locate(), locate()))
+      ..registerFactory(() => GetSubCategoryUseCase(locate(), locate()));
+
      
   
   }

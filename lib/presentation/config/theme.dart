@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 final ThemeData duaLightTheme = ThemeData(
   textTheme: _textTheme(),
-  scaffoldBackgroundColor: Color.fromARGB(255, 231, 226, 226),
+  scaffoldBackgroundColor: Color.fromARGB(255, 248, 247, 247),
   cardColor: Colors.white
 
 );
