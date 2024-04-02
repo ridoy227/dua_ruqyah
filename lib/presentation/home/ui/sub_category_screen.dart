@@ -1,5 +1,9 @@
+import 'package:dua_ruqyah/core/di/service_locator.dart';
 import 'package:dua_ruqyah/core/utility/dua_screen.dart';
+import 'package:dua_ruqyah/core/utility/utility.dart';
 import 'package:dua_ruqyah/domain/entities/sub_category_entity.dart';
+import 'package:dua_ruqyah/presentation/home/presenter/home_presenter.dart';
+import 'package:dua_ruqyah/presentation/home/ui/dua_view_screen.dart';
 import 'package:dua_ruqyah/presentation/home/widgets/simple_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +38,12 @@ class SubCategoryScreen extends StatelessWidget {
                                 offset: const Offset(00, 02))
                           ]),
                       child:  ListTile(
+                        onTap: () => _onTapOnSubCategory(
+                          context,
+                          subCategoryList[index].catId,
+                          subCategoryList[index].subcatId,
+                          title,
+                          ),
                         title: Text(subCategoryList[index].subcatNameEn),
                         subtitle: Text("Total Dua: ${subCategoryList[index].noOfDua}"),
                       ),
@@ -43,4 +53,17 @@ class SubCategoryScreen extends StatelessWidget {
       ),
     );
   }
+
+   void _onTapOnSubCategory(BuildContext context, int catId,int subCatId,String title) {
+    locate<HomePresenter>().preFetchDua(
+      catId: catId,
+      subCatId: subCatId,
+      onLoaded: (value) async {
+        final DuaViewScreen duaPage = await Future.microtask(() => DuaViewScreen(title: title,duaList: value,));
+        if (context.mounted) await context.navigatorPush<void>(duaPage);
+      },
+    );
+  }
+
+  
 }

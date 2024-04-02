@@ -2,6 +2,7 @@
 
 import 'package:dua_ruqyah/core/base/base_presenter.dart';
 import 'package:dua_ruqyah/domain/entities/category_entity.dart';
+import 'package:dua_ruqyah/domain/entities/dua_main_entity.dart';
 import 'package:dua_ruqyah/domain/entities/sub_category_entity.dart';
 import 'package:dua_ruqyah/domain/use_case/get_category_use_case.dart';
 import 'package:dua_ruqyah/domain/use_case/get_dua_repository.dart';
@@ -53,6 +54,18 @@ class HomePresenter extends BasePresenter<HomeUiState> {
   }) async {
     await parseDataFromEitherWithUserMessage(
       task: () => _getSubCategoryUseCase.execute(catId: catId),
+      showLoading: true,
+      onDataLoaded: (_) => onLoaded(_),
+    );
+  }
+
+   Future<void> preFetchDua({
+    required int catId,
+    required int subCatId,
+    required Function(List<DuaMainEntity>) onLoaded,
+  }) async {
+    await parseDataFromEitherWithUserMessage(
+      task: () => _getDuaUseCase.execute(catId: catId,subCatId: subCatId),
       showLoading: true,
       onDataLoaded: (_) => onLoaded(_),
     );
