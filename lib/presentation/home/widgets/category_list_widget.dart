@@ -20,14 +20,14 @@ class CategoryListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return
     
-    //  uiState.isLoading
-    //     ? Container(
-    //         height: 30,
-    //         width: 30,
-    //         margin: EdgeInsets.symmetric(
-    //             horizontal: DuaScreen.width / 2.2, vertical: tenPx),
-    //         child: const CircularProgressIndicator())
-    //     : 
+     uiState.categoryList.isEmpty
+        ? Container(
+            height: 30,
+            width: 30,
+            margin: EdgeInsets.symmetric(
+                horizontal: DuaScreen.width / 2.2, vertical: tenPx),
+            child: const CircularProgressIndicator())
+        : 
         ListView.builder(
             itemCount: uiState.categoryList.length,
             shrinkWrap: true,
