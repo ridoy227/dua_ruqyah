@@ -10,8 +10,8 @@ class DuaRepositoryImpl implements DuaRepository {
   late final Lock _duaMainLock = Lock();
 
   @override
-  Future<List<DuaMainEntity>> getDuaByCategoryIdAndSubCategoryId({required int catId, required int subCatId}) {
-    return _duaMainLock.synchronized(() async => await _duaLocalDataSource.getDuaByCategoryIdAndSubCategoryId(catID: catId, subCatId: subCatId));
+  Future<List<DuaMainEntity>> getDuaByCategoryIdAndSubCategoryId({required int catId,}) {
+    return _duaMainLock.synchronized(() async => await _duaLocalDataSource.getDuaByCategoryIdAndSubCategoryId(catID: catId));
   }
 
   

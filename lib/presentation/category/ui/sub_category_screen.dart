@@ -3,7 +3,7 @@ import 'package:dua_ruqyah/core/utility/dua_screen.dart';
 import 'package:dua_ruqyah/core/utility/utility.dart';
 import 'package:dua_ruqyah/domain/entities/sub_category_entity.dart';
 import 'package:dua_ruqyah/presentation/home/presenter/home_presenter.dart';
-import 'package:dua_ruqyah/presentation/home/ui/dua_view_screen.dart';
+import 'package:dua_ruqyah/presentation/dau/ui/dua_view_screen.dart';
 import 'package:dua_ruqyah/presentation/home/widgets/simple_app_bar.dart';
 import 'package:flutter/material.dart';
 

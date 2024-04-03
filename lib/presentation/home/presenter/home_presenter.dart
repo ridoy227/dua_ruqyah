@@ -64,7 +64,7 @@ class HomePresenter extends BasePresenter<HomeUiState> {
     required Function(List<DuaMainEntity>) onLoaded,
   }) async {
     await parseDataFromEitherWithUserMessage(
-      task: () => _getDuaUseCase.execute(catId: catId,subCatId: subCatId),
+      task: () => _getDuaUseCase.execute(catId: catId),
       showLoading: true,
       onDataLoaded: (_) => onLoaded(_),
     );

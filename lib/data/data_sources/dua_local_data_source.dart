@@ -31,8 +31,8 @@ class DuaLocalDataSource{
     return subCategoryEntitys;
   }
 
-   Future<List<DuaMainEntity>> getDuaByCategoryIdAndSubCategoryId({required int catID, required int subCatId}) async {
-    final List<DuaMainDto> subCategoryDto = await _duaDatabase.getSubDuaByCategoryAndSubCategoryId(categoryId: catID, subCategoryId: subCatId);
+   Future<List<DuaMainEntity>> getDuaByCategoryIdAndSubCategoryId({required int catID,}) async {
+    final List<DuaMainDto> subCategoryDto = await _duaDatabase.getSubDuaByCategoryAndSubCategoryId(categoryId: catID);
     final List<DuaMainEntity> subCategoryEntitys = await subCategoryDto.toDuaMain();
     return subCategoryEntitys;
   }

@@ -17,6 +17,7 @@ class DuaViewScreen extends StatelessWidget {
       body: Column(
         children: [
           SimpleAppBar(title: title),
+          Text("Total Duas : ${duaList.length}"),
           Expanded(
             child: ListView.builder(
                 padding: EdgeInsets.zero,
@@ -35,7 +36,17 @@ class DuaViewScreen extends StatelessWidget {
                                 offset: const Offset(00, 02))
                           ]),
                       child:  Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Container(
+                            height: 30, width: 30,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              shape: BoxShape.circle
+                            ),
+                            child: Text(duaList[index].duaId.toString(), style: TextStyle(color: Colors.white),)
+                          ),
                            Text(duaList[index].duaArabic),
                            Text(duaList[index].topEn),
                         ],

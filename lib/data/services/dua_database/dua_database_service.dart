@@ -35,11 +35,11 @@ class DuaDatabase extends _$DuaDatabase {
 
   Future<List<DuaMainDto>> get duaList => select(duaMain).get();
 
+
   Future<List<DuaMainDto>> getSubDuaByCategoryAndSubCategoryId({
     required int categoryId,
-    required int subCategoryId,
   }) =>
-      (select(duaMain)..where((tbl) => tbl.catId.equals(categoryId) & tbl.subcatId.equals(subCategoryId)))
+      (select(duaMain)..where((tbl) => tbl.catId.equals(categoryId)))
           .get();
 
 

@@ -10,9 +10,9 @@ class GetDuaUseCase {
   final DuaRepository _duaRepository;
   final ErrorMessageHandler _errorMessageHandler;
 
-  Future<Either<String, List<DuaMainEntity>>> execute ({required int catId, required int subCatId}) async {
+  Future<Either<String, List<DuaMainEntity>>> execute ({required int catId,}) async {
     try{
-      final List<DuaMainEntity> duaList = await _duaRepository.getDuaByCategoryIdAndSubCategoryId(catId: catId, subCatId: subCatId);
+      final List<DuaMainEntity> duaList = await _duaRepository.getDuaByCategoryIdAndSubCategoryId(catId: catId);
       return Right(duaList);
     } catch (e) {
       final String errorMessage = _errorMessageHandler.generateErrorMessage(e);
