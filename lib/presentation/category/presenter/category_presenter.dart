@@ -1,25 +1,19 @@
-
-
 import 'package:dua_ruqyah/core/base/base_presenter.dart';
 import 'package:dua_ruqyah/domain/entities/category_entity.dart';
-import 'package:dua_ruqyah/domain/entities/dua_main_entity.dart';
 import 'package:dua_ruqyah/domain/entities/sub_category_entity.dart';
 import 'package:dua_ruqyah/domain/use_case/get_category_use_case.dart';
-import 'package:dua_ruqyah/domain/use_case/get_dua_repository.dart';
 import 'package:dua_ruqyah/domain/use_case/get_sub_category_use_case.dart';
 import 'package:dua_ruqyah/presentation/home/presenter/home_ui_state.dart';
 import 'package:fpdart/fpdart.dart';
 
-class HomePresenter extends BasePresenter<HomeUiState> {
-  HomePresenter(
+class CategoryPresenter extends BasePresenter<HomeUiState> {
+  CategoryPresenter(
     this._getCategoryUseCase, 
     this._getSubCategoryUseCase, 
-    this._getDuaUseCase
   );
 
   final GetCategoryUseCase _getCategoryUseCase;
   final GetSubCategoryUseCase _getSubCategoryUseCase;
-  final GetDuaUseCase _getDuaUseCase;
 
   final Obs<HomeUiState> uiState = Obs(HomeUiState.empty());
 
@@ -36,6 +30,7 @@ class HomePresenter extends BasePresenter<HomeUiState> {
       addUserMessage,
       (categoryList) => uiState.value = uiState.value.copyWith( categoryList: categoryList)
     );
+
   }
 
 
@@ -58,17 +53,6 @@ class HomePresenter extends BasePresenter<HomeUiState> {
     );
   }
 
-   Future<void> preFetchDua({
-    required int catId,
-    required int subCatId,
-    required Function(List<DuaMainEntity>) onLoaded,
-  }) async {
-    await parseDataFromEitherWithUserMessage(
-      task: () => _getDuaUseCase.execute(catId: catId,subCatId: subCatId),
-      showLoading: true,
-      onDataLoaded: (_) => onLoaded(_),
-    );
-  }
 
 
   @override

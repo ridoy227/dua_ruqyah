@@ -12,6 +12,7 @@ import 'package:dua_ruqyah/domain/services/error_message_handler.dart';
 import 'package:dua_ruqyah/domain/use_case/get_category_use_case.dart';
 import 'package:dua_ruqyah/domain/use_case/get_dua_repository.dart';
 import 'package:dua_ruqyah/domain/use_case/get_sub_category_use_case.dart';
+import 'package:dua_ruqyah/presentation/category/presenter/category_presenter.dart';
 import 'package:dua_ruqyah/presentation/home/presenter/home_presenter.dart';
 import 'package:get_it/get_it.dart';
 import 'package:stacked_themes/stacked_themes.dart';
@@ -84,84 +85,24 @@ class ServiceLocator {
     _serviceLocator
       ..registerLazySingleton(DuaDatabase.new)
       ..registerLazySingleton<ErrorMessageHandler>(ErrorMessageHandlerImpl.new);
-    //   ..registerLazySingleton(LocalCacheService.new)
-    //   ..registerSingleton<AwesomeNotifications>(AwesomeNotifications())
-    //   ..registerFactory(ArticleApiService.new)
-    //   ..registerLazySingleton(PickOrSave.new)
-    //   ..registerFactory<FileService>(() => FileServicePresentable(locate()))
-    //   ..registerLazySingleton<NotificationService>(
-    //     () => NotificationServicePresentable(locate(), locate()),
-    //   )
-    //   ..registerLazySingleton(() => ReviewAskCountService(locate()))
-    //   ..registerLazySingleton(() => InAppReview.instance)
-    //   ..registerLazySingleton(BackendAsAService.new)
-    //   ..registerLazySingleton(ThemeService.getInstance);
-
-    // final NotificationService notificationService = locate();
-    // await ThemeManager.initialise();
-    // await LocalCacheService.setUp();
-    // await notificationService.setUp();
-    // await _setUpFirebaseServices();
   }
 
   Future<void> _setUpFirebaseServices() async {
-    // await catchFutureOrVoid(() async {
-    //   final FirebaseApp? firebaseApp = await catchAndReturnFuture(() async {
-    //     return Firebase.initializeApp(
-    //       options: DefaultFirebaseOptions.currentPlatform,
-    //     );
-    //   });
-    //   if (firebaseApp == null) return;
-    //   if (kDebugMode) return;
-
-    //   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-    //   PlatformDispatcher.instance.onError = (error, stack) {
-    //     FirebaseCrashlytics.instance.recordError(
-    //       error,
-    //       stack,
-    //       fatal: true,
-    //       printDetails: true,
-    //     );
-    //     return true;
-    //   };
-    // });
+  
   }
 
   Future<void> _setUpDataSources() async {
     _serviceLocator
-      ..registerLazySingleton(
+      .registerLazySingleton(
         () => DuaLocalDataSource(locate()));
     //   )
     //   ..registerFactory(() => SearchLocalDataSource(locate()))
-    //   ..registerFactory(() => InfoLocalDataSource(locate(), locate()))
-    //   ..registerFactory(() => UserDataRemoteDataSource(locate()))
-    //   ..registerFactory(() => ArticleDataSource(locate()))
-    //   ..registerFactory(() => InfoRemoteDataSource(locate(), locate()))
-    //   ..registerFactory(() => UserDataLocalDataSource(locate(), locate(),locate()));
   }
 
   Future<void> _setUpRepositories() async {
     _serviceLocator
       ..registerLazySingleton<CategoryRepository>( () => CategoryRepositoryImpl(locate()))
       ..registerLazySingleton<DuaRepository>( () => DuaRepositoryImpl(locate()));
-    //   ..registerLazySingleton<NotificationRepository>(
-    //     () => NotificationRepositoryImpl(
-    //       locate(),
-    //       locate(),
-    //       locate(),
-    //       locate(),
-    //     ),
-    //   )
-    //   ..registerLazySingleton<ChapterRepository>(
-    //     () => ChapterRepositoryImpl(locate()),
-    //   )
-    //   ..registerSingleton<SettingsRepository>(
-    //     SettingsRepositoryImpl(
-    //       locate(),
-    //       locate(),
-    //     ),
-    //   );
- 
   }
 
   Future<void> _setUpPresenters() async {
@@ -172,7 +113,14 @@ class ServiceLocator {
             locate(),
             locate(),
             locate()
-         
+          ),
+        ),
+      )
+      ..registerFactory(
+        () => loadPresenter(
+          CategoryPresenter(
+            locate(),
+            locate(),
           ),
         ),
       );
@@ -190,7 +138,5 @@ class ServiceLocator {
       ..registerFactory(() => GetDuaUseCase(locate(), locate()))
       ..registerFactory(() => GetSubCategoryUseCase(locate(), locate()));
 
-     
-  
   }
 }

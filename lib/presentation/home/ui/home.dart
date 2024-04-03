@@ -3,7 +3,7 @@ import 'package:dua_ruqyah/core/external_librarys/presentable_widget_builder.dar
 import 'package:dua_ruqyah/core/utility/dua_screen.dart';
 import 'package:dua_ruqyah/presentation/home/presenter/home_presenter.dart';
 import 'package:dua_ruqyah/presentation/home/presenter/home_ui_state.dart';
-import 'package:dua_ruqyah/presentation/home/widgets/category_list_widget.dart';
+import 'package:dua_ruqyah/presentation/category/presenter/category_list_widget.dart';
 import 'package:dua_ruqyah/presentation/home/widgets/custom_app_bar.dart';
 import 'package:dua_ruqyah/presentation/home/widgets/daily_dua_carousol_widget.dart';
 import 'package:dua_ruqyah/presentation/home/widgets/dashboard_widget.dart';

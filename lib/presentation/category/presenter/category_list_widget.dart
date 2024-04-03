@@ -1,9 +1,9 @@
 import 'package:dua_ruqyah/core/di/service_locator.dart';
 import 'package:dua_ruqyah/core/utility/dua_screen.dart';
 import 'package:dua_ruqyah/core/utility/utility.dart';
-import 'package:dua_ruqyah/presentation/home/presenter/home_presenter.dart';
+import 'package:dua_ruqyah/presentation/category/presenter/category_presenter.dart';
 import 'package:dua_ruqyah/presentation/home/presenter/home_ui_state.dart';
-import 'package:dua_ruqyah/presentation/home/ui/sub_category_screen.dart';
+import 'package:dua_ruqyah/presentation/category/ui/sub_category_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryListWidget extends StatelessWidget {
@@ -20,8 +20,7 @@ class CategoryListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return uiState.categoryList.isEmpty
         ? Container(
-            height: 30,
-            width: 30,
+            height: 30,width: 30,
             margin: EdgeInsets.symmetric(
                 horizontal: DuaScreen.width / 2.2, vertical: tenPx),
             child: const CircularProgressIndicator())
@@ -40,7 +39,7 @@ class CategoryListWidget extends StatelessWidget {
                         color: theme.cardColor,
                         boxShadow: [
                           BoxShadow(
-                              color: Colors.grey[200]!, offset: Offset(00, 02))
+                              color: Colors.grey[200]!, offset: const Offset(00, 02))
                         ]),
                     margin: EdgeInsets.symmetric(
                         horizontal: twentyPx, vertical: fourPx),
@@ -88,7 +87,7 @@ class CategoryListWidget extends StatelessWidget {
   }
 
   void _onTapOnCatgegory(BuildContext context, int catId,String title) {
-    locate<HomePresenter>().preFetchSubCategory(
+    locate<CategoryPresenter>().preFetchSubCategory(
       catId: catId,
       onLoaded: (value) async {
         final SubCategoryScreen chaptersPage = await Future.microtask(() => SubCategoryScreen(title: title,subCategoryList: value,));
