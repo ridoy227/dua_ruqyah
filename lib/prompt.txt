@@ -1,0 +1,264 @@
+File : dua_local_data_source.dart
+
+
+
+import 'package:dua_ruqyah/data/mappers/category_mapper.dart';
+import 'package:dua_ruqyah/data/mappers/dua_main_mapper.dart';
+import 'package:dua_ruqyah/data/mappers/sub_category_mapper.dart';
+import 'package:dua_ruqyah/data/services/dua_database/dua_database_service.dart';
+import 'package:dua_ruqyah/domain/entities/category_entity.dart';
+import 'package:dua_ruqyah/domain/entities/dua_main_entity.dart';
+import 'package:dua_ruqyah/domain/entities/sub_category_entity.dart';
+
+class DuaLocalDataSource {
+  DuaLocalDataSource(this._duaDatabase);
+  final DuaDatabase _duaDatabase;
+
+  final Map<int, CategoryEntity> _categoryEntityCache = {};
+  final Map<int, SubCategoryEntity> subCategoryCache = {};
+  final Map<int, List<SubCategoryEntity>> _duaSubcategoryCache = {}; // New cache
+
+  Future<List<CategoryEntity>> getAllCategorys() async {
+    if (_categoryEntityCache.isNotEmpty) return _categoryEntityCache.values.toList();
+
+    final List<DuaCategoryDto> categoryDto = await _duaDatabase.categoryList;
+    final List<CategoryEntity> categoryEntitys = await categoryDto.toCategory();
+    for (CategoryEntity category in categoryEntitys) {
+      _categoryEntityCache[category.id] = category;
+    }
+    return categoryEntitys;
+  }
+
+  Future<List<SubCategoryEntity>> getSubcategoryByCategoryId({required int catID}) async {
+    final List<DuaSubcategoryDto> subCategoryDto = await _duaDatabase.getSubCategoryByCategoryId(categoryId: catID);
+    final List<SubCategoryEntity> subCategoryEntitys = await subCategoryDto.toSubCategory();
+    for (SubCategoryEntity subCategory in subCategoryEntitys) {
+      subCategoryCache[subCategory.id] = subCategory;
+    }
+    return subCategoryEntitys;
+  }
+
+  Future<List<DuaMainEntity>> getDuaByCategoryIdAndSubCategoryId({required int catID}) async {
+    final List<DuaMainDto> subCategoryDto = await _duaDatabase.getSubDuaByCategoryAndSubCategoryId(categoryId: catID);
+    final List<DuaMainEntity> subCategoryEntitys = await subCategoryDto.toDuaMain();
+    return subCategoryEntitys;
+  }
+
+  // New method to fetch DuaSubcategoryEntity objects
+  Future<List<SubCategoryEntity>> getDuaSubcategoryByCategoryId({required int catID}) async {
+    if (_duaSubcategoryCache.containsKey(catID)) {
+      return _duaSubcategoryCache.values.elementAt(catID); // Return cached entities
+    }
+
+    final List<DuaSubcategoryDto> duaSubcategoryDto = await _duaDatabase.getSubCategoryByCategoryId(categoryId: catID);
+    final List<SubCategoryEntity> duaSubcategoryEntities = await duaSubcategoryDto.toSubCategory();
+
+    _duaSubcategoryCache[catID] = duaSubcategoryEntities; // Cache entities
+    return duaSubcategoryEntities;
+  }
+}
+
+=============
+
+File : dua_view_screen.dart
+
+
+
+import 'package:dua_ruqyah/core/utility/dua_screen.dart';
+import 'package:dua_ruqyah/domain/entities/dua_main_entity.dart';
+import 'package:dua_ruqyah/presentation/home/widgets/simple_app_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class DuaViewScreen extends StatelessWidget {
+  const DuaViewScreen({super.key, required this.title, required this.duaList});
+
+  final String title;
+  final List<DuaMainEntity> duaList;
+
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+
+    // Group duas by section name
+    Map<String, List<DuaMainEntity>> groupedDuas = {};
+    for (var dua in duaList) {
+      String sectionName = dua.subcatId.toString() ?? ""; // Handle null section names
+      groupedDuas.putIfAbsent(sectionName, () => []);
+      groupedDuas[sectionName]!.add(dua);
+    }
+
+    return Scaffold(
+      body: Column(
+        children: [
+          SimpleAppBar(title: title),
+          Text("Total Duas : ${duaList.length}"),
+          Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.zero,
+              itemCount: groupedDuas.length,
+              itemBuilder: (context, index) {
+                String sectionName = groupedDuas.keys.elementAt(index);
+                List<DuaMainEntity> sectionDuas = groupedDuas[sectionName]!;
+
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Section Name Header
+                    Container(
+                      height: 40, width: 40,
+                      color: Colors.red,
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: twentyPx, top: tenPx),
+                        child: Text(
+                          sectionName,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          )
+                        ),
+                      ),
+                    ),
+
+                    // Duas within the section
+                    ListView.builder(
+                      padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(), // Prevent nested scrolling
+                      itemCount: sectionDuas.length,
+                      itemBuilder: (context, duaIndex) {
+                        DuaMainEntity dua = sectionDuas[duaIndex];
+                        return dua.duaArabic == "" && dua.topEn == ""
+                            ? const SizedBox.shrink()
+                            : Container(
+                                margin: EdgeInsets.symmetric(
+                                    vertical: fourPx, horizontal: twentyPx),
+                                // height: sixtyFourPx,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(tenPx),
+                                    color: theme.cardColor,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: Colors.grey[200]!,
+                                          offset: const Offset(00, 02))
+                                    ]),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                        height: 30,
+                                        width: 30,
+                                        alignment: Alignment.center,
+                                        decoration: BoxDecoration(
+                                            color: Colors.green,
+                                            shape: BoxShape.circle),
+                                        child: Text(
+                                          dua.duaId.toString(),
+                                          style: TextStyle(color: Colors.white),
+                                        )),
+                                    Text(dua.duaArabic),
+                                    Text(dua.topEn),
+                                  ],
+                                ),
+                              );
+                      },
+                    ),
+                  ],
+                );
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+===============
+
+File : sub_category_screen.dart
+
+
+import 'package:dua_ruqyah/core/di/service_locator.dart';
+import 'package:dua_ruqyah/core/utility/dua_screen.dart';
+import 'package:dua_ruqyah/core/utility/utility.dart';
+import 'package:dua_ruqyah/domain/entities/dua_main_entity.dart';
+import 'package:dua_ruqyah/domain/entities/sub_category_entity.dart';
+import 'package:dua_ruqyah/presentation/home/presenter/home_presenter.dart';
+import 'package:dua_ruqyah/presentation/dau/ui/dua_view_screen.dart';
+import 'package:dua_ruqyah/presentation/home/widgets/simple_app_bar.dart';
+import 'package:flutter/material.dart';
+
+class SubCategoryScreen extends StatelessWidget {
+  const SubCategoryScreen({super.key, required this.title, required this.subCategoryList});
+
+  final String title;
+  final List<SubCategoryEntity> subCategoryList;
+
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    return Scaffold(
+      body: Column(
+        children: [
+          SimpleAppBar(title: title),
+          Expanded(
+            child: ListView.builder(
+                padding: EdgeInsets.zero,
+                itemCount: subCategoryList.length,
+                itemBuilder: (context, index) => Container(
+                      margin: EdgeInsets.symmetric(
+                          vertical: fourPx, horizontal: twentyPx),
+                      height: sixtyFourPx,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(tenPx),
+                          color: theme.cardColor,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey[200]!,
+                                offset: const Offset(00, 02))
+                          ]),
+                      child:  ListTile(
+                        onTap: () => _onTapOnSubCategory(
+                          context,
+                          subCategoryList[index].catId,
+                          subCategoryList[index].subcatId,
+                          title,
+                          subCategoryList,
+                          ),
+                        title: Text(subCategoryList[index].subcatNameEn),
+                        subtitle: Text("Total Dua: ${subCategoryList[index].noOfDua}"),
+                      ),
+                    )),
+          )
+        ],
+      ),
+    );
+  }
+
+   void _onTapOnSubCategory(BuildContext context, int catId,int subCatId,String title, List<SubCategoryEntity> subCategoryList) {
+    locate<HomePresenter>().preFetchDua(
+      catId: catId,
+      subCatId: subCatId,
+      onLoaded: (value) async {
+        Map<int, SubCategoryEntity> categoryCache = {};
+        for (SubCategoryEntity dua in subCategoryList) {
+          categoryCache[dua.subcatId] = dua;
+        }
+        final DuaViewScreen duaPage = await Future.microtask(() => DuaViewScreen(title: title,duaList: value, subCategoryCache: categoryCache ,));
+        if (context.mounted) await context.navigatorPush<void>(duaPage);
+      },
+    );
+  }
+
+  
+}
+
+
+
+===========
+
+Now show the subcategory name beside the subcategory id in dua_view_screen.dart file using subCategoryCache = {};

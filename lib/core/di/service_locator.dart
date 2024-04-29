@@ -10,7 +10,7 @@ import 'package:dua_ruqyah/domain/repositories/category_repository.dart';
 import 'package:dua_ruqyah/domain/repositories/dua_repository.dart';
 import 'package:dua_ruqyah/domain/services/error_message_handler.dart';
 import 'package:dua_ruqyah/domain/use_case/get_category_use_case.dart';
-import 'package:dua_ruqyah/domain/use_case/get_dua_repository.dart';
+import 'package:dua_ruqyah/domain/use_case/get_dua_use_case.dart';
 import 'package:dua_ruqyah/domain/use_case/get_sub_category_use_case.dart';
 import 'package:dua_ruqyah/presentation/category/presenter/category_presenter.dart';
 import 'package:dua_ruqyah/presentation/home/presenter/home_presenter.dart';
